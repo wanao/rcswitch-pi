@@ -14,14 +14,14 @@ int main(int argc, char *argv[]) {
      see https://projects.drogon.net/raspberry-pi/wiringpi/pins/
      for pin mapping of the raspberry pi GPIO connector
      */
-    int PIN = 0;
-    char* systemCode = argv[1];
+    char* systemCode = argv[2];
+    int pin = atoi(argv[1]);
 
     if (wiringPiSetup () == -1) return 1;
 
     printf("sending systemCode[%s]\n", systemCode);
     RCSwitch mySwitch = RCSwitch();
-    mySwitch.enableTransmit(PIN);
+    mySwitch.enableTransmit(pin);
     mySwitch.setPulseLength(182);
     mySwitch.sendTriState(systemCode);
     return 0;
