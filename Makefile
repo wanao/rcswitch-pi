@@ -1,3 +1,5 @@
+CXXFLAGS :=-fpermissive
+
 all: send
 
 send: RCSwitch.o send.o
